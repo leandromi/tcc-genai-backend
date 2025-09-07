@@ -1,0 +1,88 @@
+{
+  "dadosIdentificacao": {
+    "nomeCompleto": "Carlos Eduardo Pereira",
+    "nomeMae": "Fernanda Pereira",
+    "cpf": "12345678901",
+    "rg": {
+      "numero": "4456677",
+      "orgaoExpedidor": "SSP",
+      "uf": "SP"
+    },
+    "passaporte": {
+      "numero": null,
+      "paisEmissor": null,
+      "validade": null
+    },
+    "dataNascimento": "1986-03-22",
+    "genero": "M",
+    "estadoCivil": "Casado",
+    "nacionalidade": "Brasileira",
+  },
+  "endereco": {
+    "logradouro": "Rua das Palmeiras",
+    "numero": "245",
+    "complemento": "Casa 2",
+    "bairro": "Jardins",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "01422001",
+    "pais": "Brasil",
+    "tipoResidencia": "Própria",
+  },
+  "contatos": {
+    "emailPrincipal": "carlos.pereira@email.com",
+    "emailAlternativo": "carlos.pereira@trabalho.com",
+    "telefoneCelular": "+5511987654321",
+    "telefoneResidencial": "+551134445566",
+    "telefoneComercial": "+551133445577"
+  },
+  "dadosProfissionais": {
+    "profissao": "Engenheiro de Software",
+    "cargo": "Tech Lead",
+    "empresa": "Tech Solutions LTDA",
+    "cnpjEmpresa": "12345678000199",
+    "tempoEmpregoAnos": 7,
+  },
+  "dadosFinanceiros": {
+    "faixaRenda": "15000-20000",
+    "scoreCreditoExterno": 745,
+    "possuiRestricao": false,
+    "investimentos": [
+      {
+        "tipo": "Renda Fixa",
+        "valor": 250000.00,
+      },
+      {
+        "tipo": "Fundos Imobiliários",
+        "valor": 80000.00,
+      }
+    ],
+    "segurosContratados": [
+      {
+        "tipo": "Vida",
+        "valorCobertura": 300000.00,
+        "premioMensal": 280.00
+      },
+      {
+        "tipo": "Residencial",
+        "valorCobertura": 500000.00,
+        "premioMensal": 120.00
+      }
+    ]
+  },
+  "perfilInvestidor": {
+    "objetivoInvestimento": "Aposentadoria",
+    "toleranciaRisco": "Moderado",
+    "horizonteInvestimentoAnos": 25,
+    "experienciaInvestimentos": "Avançada"
+  },
+  "compliance": {
+    "residenteFiscalExterior": false,
+    "paisResidenciaFiscal": [],
+    "declaraFatca": false,
+    "aceiteLGPD": true,
+    "aceiteCompartilhamentoDados": true,
+    "aceiteMarketing": false,
+    "aceiteTermos": true
+  }
+}

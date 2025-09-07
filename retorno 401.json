@@ -1,0 +1,7 @@
+{
+  "erro": "AUTENTICACAO",
+  "mensagem": "Token inválido ou expirado. Solicite novo token de acesso.",
+  "detalhes": [
+    { "header": "Authorization", "erro": "Bearer token ausente ou incorreto." }
+  ]
+}

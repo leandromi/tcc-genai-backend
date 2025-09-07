@@ -1,0 +1,48 @@
+Quero que você gere um backend em Java (Spring Boot) para integrar com a API de Cadastro de Cliente descrita no arquivo OpenAPI que forneci.
+Use o payload de exemplo (payload.txt) como entrada e considere todos os retornos possíveis.
+
+Requisitos do projeto:
+Arquitetura e Padrões
+Utilize Spring Boot (versão estável mais recente).
+Siga boas práticas de Clean Architecture e DDD (Domain-Driven Design).
+Organize o projeto em camadas: controller, service, repository, client, domain, dto, config.
+Utilize builder pattern e DTOs para entrada e saída.
+Mapeie os retornos da API em classes específicas para cada status
+
+Integração com a API
+Consuma o endpoint definido no YAML.
+Configure HttpClient com RestTemplate ou WebClient.
+Inclua suporte a autenticação via Bearer Token.
+Faça o parsing correto das respostas JSON.
+
+Tratamento de erros
+Crie uma camada de Exception Handling global com @ControllerAdvice.
+Trate os diferentes tipos de erro conforme base de conhecimento disponibilizada
+Retorne mensagens claras e padronizadas no backend.
+
+Logs e Monitoramento
+Use um logging estruturado.
+Inclua traceId nas requisições/respostas.
+Registre payloads de entrada, resposta e erros.
+
+Testes
+Crie testes unitários (JUnit ) para serviços e clients.
+Crie testes de integração simulando a API.
+Valide todos os cenários de resposta.
+
+Documentação
+Gere Swagger/OpenAPI automaticamente para expor os endpoints internos.
+Inclua um README.md explicando como rodar o projeto, configurar variáveis de ambiente e rodar os testes.
+Inclua exemplos de requisições e respostas.
+
+Entrega final
+Código pronto para rodar (mvn spring-boot:run).
+Projeto com dependências configuradas no pom.xml.
+Testes passando (mvn test).
+Documentação clara no README.
+
+Funcionalidades esperadas:
+Endpoint interno /clientes/cadastrar que recebe o payload JSON (baseado no payload.txt).
+Esse endpoint deve chamar a API de cadastro de cliente (YAML).
+Deve tratar e retornar corretamente as respostas conforme os JSONs fornecidos.
+Retornar logs e mensagens amigáveis para o consumidor da API.   

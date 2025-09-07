@@ -1,0 +1,13 @@
+{
+  "erro": "ANALISE_CREDITO",
+  "mensagem": "Cliente não aprovado na análise preliminar.",
+  "detalhes": {
+    "scoreCredito": 480,
+    "riscoCredito": "Alto",
+    "motivoRejeicao": [
+      "Histórico de inadimplência em outro banco.",
+      "Renda declarada inconsistente com movimentação bancária."
+    ],
+    "dataAnalise": "2025-08-24T15:32:10Z"
+  }
+}

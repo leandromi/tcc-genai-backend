@@ -1,0 +1,13 @@
+{
+  "codigoCliente": "CLI-20250824-0001",
+  "status": "CADASTRADO",
+  "mensagem": "Cadastro concluído e enviado para análise de crédito.",
+  "analisePreliminar": {
+    "scoreInterno": 735,
+    "riscoCredito": "Baixo",
+    "perfilInvestidor": "Moderado"
+  },
+  "links": {
+    "consulta": "https://api.parceirofinanceiro.com/v1/cadastro/cliente/CLI-20250824-0001"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "erro": "VALIDACAO",
+  "mensagem": "O campo 'cpf' é inválido ou já cadastrado.",
+  "detalhes": [
+    { "campo": "cpf", "erro": "Formato inválido. Deve conter 11 dígitos numéricos." },
+    { "campo": "dataNascimento", "erro": "Cliente deve ter idade mínima de 18 anos." }
+  ]
+}

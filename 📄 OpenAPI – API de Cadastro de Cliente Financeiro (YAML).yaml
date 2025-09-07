@@ -1,0 +1,174 @@
+openapi: 3.0.3
+info:
+  title: API de Cadastro de Cliente Financeiro
+  description: >
+    API para cadastro de clientes.
+    O cadastro inclui dados pessoais, endereço, contatos, situação profissional,
+    informações financeiras, perfil investidor e consentimentos regulatórios.
+  version: 1.0.0
+servers:
+  - url: ___
+paths:
+  /cadastro/cliente:
+    post:
+      summary: Cadastro de cliente
+      description: Registra um cliente com dados de crédito, investimentos e seguros.
+      operationId: cadastrarCliente
+      tags:
+        - Cadastro
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CadastroClienteRequest'
+      responses:
+        '201':
+          description: Cadastro realizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CadastroClienteResponse'
+        '400':
+          description: Erro de validação dos dados
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Erro de autenticação
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    CadastroClienteRequest:
+      type: object
+      required:
+        - dadosIdentificacao
+        - endereco
+        - contatos
+        - dadosProfissionais
+        - dadosFinanceiros
+        - perfilInvestidor
+        - compliance
+      properties:
+        dadosIdentificacao:
+          type: object
+          required: [nomeCompleto, cpf, dataNascimento, nacionalidade, pep]
+          properties:
+            nomeCompleto: { type: string, maxLength: 150 }
+            nomeMae: { type: string, maxLength: 150 }
+            cpf: { type: string, pattern: '^[0-9]{11}$' }
+            rg:
+              type: object
+              properties:
+                numero: { type: string }
+                orgaoExpedidor: { type: string }
+                uf: { type: string, maxLength: 2 }
+            passaporte:
+              type: object
+              properties:
+                numero: { type: string, nullable: true }
+                paisEmissor: { type: string, nullable: true }
+                validade: { type: string, format: date, nullable: true }
+            dataNascimento: { type: string, format: date }
+            genero: { type: string, enum: [M, F, Outro] }
+            estadoCivil: { type: string }
+            nacionalidade: { type: string }
+        endereco:
+          type: object
+          properties:
+            logradouro: { type: string }
+            numero: { type: string }
+            complemento: { type: string }
+            bairro: { type: string }
+            cidade: { type: string }
+            estado: { type: string, maxLength: 2 }
+            cep: { type: string, pattern: '^[0-9]{8}$' }
+            pais: { type: string }
+            tipoResidencia: { type: string, enum: [Própria, Alugada, Familiar, Outro] }
+        contatos:
+          type: object
+          properties:
+            emailPrincipal: { type: string, format: email }
+            emailAlternativo: { type: string, format: email }
+            telefoneCelular: { type: string }
+            telefoneResidencial: { type: string }
+            telefoneComercial: { type: string }
+        dadosProfissionais:
+          type: object
+          properties:
+            profissao: { type: string }
+            cargo: { type: string }
+            empresa: { type: string }
+            cnpjEmpresa: { type: string, pattern: '^[0-9]{14}$' }
+            tempoEmpregoAnos: { type: integer, minimum: 0 }
+        dadosFinanceiros:
+          type: object
+          properties:
+            faixaRenda: { type: string }
+            scoreCreditoExterno: { type: integer, minimum: 0, maximum: 1000 }
+            possuiRestricao: { type: boolean }
+            investimentos:
+              type: array
+              items:
+                type: object
+                properties:
+                  tipo: { type: string }
+                  valor: { type: number, format: float }
+            segurosContratados:
+              type: array
+              items:
+                type: object
+                properties:
+                  tipo: { type: string }
+                  valorCobertura: { type: number, format: float }
+                  premioMensal: { type: number, format: float }
+        perfilInvestidor:
+          type: object
+          properties:
+            objetivoInvestimento: { type: string }
+            toleranciaRisco: { type: string, enum: [Conservador, Moderado, Arrojado] }
+            horizonteInvestimentoAnos: { type: integer }
+            experienciaInvestimentos: { type: string }
+        compliance:
+          type: object
+          properties:
+            residenteFiscalExterior: { type: boolean }
+            paisResidenciaFiscal:
+              type: array
+              items: { type: string }
+            declaraFatca: { type: boolean }
+            aceiteLGPD: { type: boolean }
+            aceiteCompartilhamentoDados: { type: boolean }
+            aceiteMarketing: { type: boolean }
+            aceiteTermos: { type: boolean }
+    CadastroClienteResponse:
+      type: object
+      properties:
+        codigoCliente: { type: string }
+        status: { type: string, enum: [CADASTRADO, REJEITADO, PENDENTE] }
+        mensagem: { type: string }
+        analisePreliminar:
+          type: object
+          properties:
+            scoreInterno: { type: integer }
+            riscoCredito: { type: string }
+            perfilInvestidor: { type: string }
+        links:
+          type: object
+          properties:
+            consulta: { type: string, format: uri }
+    ErrorResponse:
+      type: object
+      properties:
+        erro: { type: string }
+        mensagem: { type: string }

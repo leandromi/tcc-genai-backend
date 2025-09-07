@@ -1,0 +1,8 @@
+{
+  "erro": "SERVIDOR",
+  "mensagem": "Erro interno. Tente novamente mais tarde.",
+  "detalhes": {
+    "codigo": "ERR-500-001",
+    "traceId": "b7c3a2d5-f21a-4c11-94f1-7e91a3bc1234"
+  }
+}
