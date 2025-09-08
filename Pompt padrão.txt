@@ -7,7 +7,7 @@ Utilize Spring Boot (versão estável mais recente).
 Siga boas práticas de Clean Architecture e DDD (Domain-Driven Design).
 Organize o projeto em camadas: controller, service, repository, client, domain, dto, config.
 Utilize builder pattern e DTOs para entrada e saída.
-Mapeie os retornos da API em classes específicas para cada status
+Mapeie os retornos da API em classes específicas para cada status.
 
 Integração com a API
 Consuma o endpoint definido no YAML.
@@ -16,7 +16,7 @@ Inclua suporte a autenticação via Bearer Token.
 Faça o parsing correto das respostas JSON.
 
 Tratamento de erros
-Crie uma camada de Exception Handling global com @ControllerAdvice.
+Crie uma camada de Exception Handling global.
 Trate os diferentes tipos de erro conforme base de conhecimento disponibilizada
 Retorne mensagens claras e padronizadas no backend.
 
@@ -24,11 +24,6 @@ Logs e Monitoramento
 Use um logging estruturado.
 Inclua traceId nas requisições/respostas.
 Registre payloads de entrada, resposta e erros.
-
-Testes
-Crie testes unitários (JUnit ) para serviços e clients.
-Crie testes de integração simulando a API.
-Valide todos os cenários de resposta.
 
 Documentação
 Gere Swagger/OpenAPI automaticamente para expor os endpoints internos.
@@ -38,7 +33,6 @@ Inclua exemplos de requisições e respostas.
 Entrega final
 Código pronto para rodar (mvn spring-boot:run).
 Projeto com dependências configuradas no pom.xml.
-Testes passando (mvn test).
 Documentação clara no README.
 
 Funcionalidades esperadas:
